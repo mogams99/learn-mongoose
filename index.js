@@ -15,11 +15,40 @@ const movieSchema = new mongoose.Schema({
 
 const Movie = mongoose.model('Movie', movieSchema);
 
-const movie = new Movie({
-    title: 'Black Phanter',
-    year: 2018,
-    score: 7.3,
-    director: "Ryan Coogler"
-});
+// ! temporary comment
+// const movie = new Movie({
+//     title: 'Black Phanter',
+//     year: 2018,
+//     score: 7.3,
+//     director: "Ryan Coogler"
+// });
+// movie.save();
 
-movie.save();
+const movie = [
+    {
+        title: 'Naruto',
+        year: 1998,
+        score: 9.3,
+        director: "Kasashikisimoto"
+    },
+    {
+        title: 'Bleach',
+        year: 1998,
+        score: 6.3,
+        director: "Hehe Ga Apal"
+    },
+    {
+        title: 'One Piece',
+        year: 1990,
+        score: 10.0,
+        director: "Oda"
+    },
+];
+
+Movie.insertMany(movie)
+    .then((result) => {
+        console.log('Movies batch has successfully saved!');
+        console.log(result);
+    }).catch((err) => {
+        console.log(err);
+    });
