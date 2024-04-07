@@ -15,7 +15,6 @@ const movieSchema = new mongoose.Schema({
 
 const Movie = mongoose.model('Movie', movieSchema);
 
-// ! temporary comment
 // const movie = new Movie({
 //     title: 'Black Phanter',
 //     year: 2018,
@@ -24,30 +23,37 @@ const Movie = mongoose.model('Movie', movieSchema);
 // });
 // movie.save();
 
-const movie = [
-    {
-        title: 'Naruto',
-        year: 1998,
-        score: 9.3,
-        director: "Kasashikisimoto"
-    },
-    {
-        title: 'Bleach',
-        year: 1998,
-        score: 6.3,
-        director: "Hehe Ga Apal"
-    },
-    {
-        title: 'One Piece',
-        year: 1990,
-        score: 10.0,
-        director: "Oda"
-    },
-];
+// const movie = [
+//     {
+//         title: 'Naruto',
+//         year: 1998,
+//         score: 9.3,
+//         director: "Kasashikisimoto"
+//     },
+//     {
+//         title: 'Bleach',
+//         year: 1998,
+//         score: 6.3,
+//         director: "Hehe Ga Apal"
+//     },
+//     {
+//         title: 'One Piece',
+//         year: 1990,
+//         score: 10.0,
+//         director: "Oda"
+//     },
+// ];
 
-Movie.insertMany(movie)
+// Movie.insertMany(movie)
+//     .then((result) => {
+//         console.log('Movies batch has successfully saved!');
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+Movie.findById('6612a21a4fbd14eb00986d70')
     .then((result) => {
-        console.log('Movies batch has successfully saved!');
         console.log(result);
     }).catch((err) => {
         console.log(err);
