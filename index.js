@@ -52,9 +52,37 @@ const Movie = mongoose.model('Movie', movieSchema);
 //         console.log(err);
 //     });
 
-Movie.findById('6612a21a4fbd14eb00986d70')
-    .then((result) => {
-        console.log(result);
-    }).catch((err) => {
-        console.log(err);
-    });
+// Movie.findById('6612a21a4fbd14eb00986d70')
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// Movie.find()
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// Movie.updateOne({title: 'Bleach'}, {score: 9.0})
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// Movie.updateMany({year: {$lt: 2018}}, {score: 7.9})
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// Movie.findByIdAndUpdate('6612a21a4fbd14eb00986d6e', { score: 9.1 }, { new: true })
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
