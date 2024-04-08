@@ -86,3 +86,24 @@ const Movie = mongoose.model('Movie', movieSchema);
 //     }).catch((err) => {
 //         console.log(err);
 //     });
+
+// Movie.deleteOne({title: 'Bleach'})
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// Movie.deleteMany()
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// Movie.findByIdAndDelete('6612a21a4fbd14eb00986d6e')
+//     .then((result) => {
+//         console.log(result);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
