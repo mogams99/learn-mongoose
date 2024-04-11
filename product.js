@@ -25,7 +25,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     size: {
-        type: String,
+        type: [String],
         required: true
     },
     description: {
@@ -58,7 +58,20 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
-// const tshirt = new Product({name: 'Goolagool Shirt V3', price: 200000, color: 'acid'});
+const tshirt = new Product({
+    "name": "Kemeja Flanel",
+    "brand": "Hollister",
+    "price": 750000,
+    "color": "biru muda",
+    "size": ["S", "M", "L"],
+    "description": "Kemeja flanel dengan warna yang cerah, terbuat dari bahan flanel yang nyaman dan berkualitas tinggi.",
+    "condition": "baru",
+    "stock": 25,
+    "availability": {
+        "online": true,
+        "offline": true
+    }
+});
 
 // tshirt.save()
 //     .then((result) => {
@@ -78,3 +91,12 @@ const Product = mongoose.model('Product', productSchema);
 // }).catch(err => {
 //     console.log(err);
 // })
+
+Product.findByIdAndUpdate('6617af73164d9bc07857c353', {
+    "price": 150000,
+    "stock": 7,
+}, {new: true, runValidators: true}).then(res => {
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+})
