@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true,
-        min: 0
+        min: [0, 'Nilai tidak boleh kurang dari nol.']
     },
     color: {
         type: String,
@@ -42,7 +42,7 @@ const productSchema = new mongoose.Schema({
     stock: {
         type: Number,
         required: true,
-        min: 0
+        min: [0, 'Nilai tidak boleh kurang dari nol.']
     },
     availability: {
         online: {
@@ -94,9 +94,9 @@ const tshirt = new Product({
 
 Product.findByIdAndUpdate('6617af73164d9bc07857c353', {
     "price": 150000,
-    "stock": 7,
+    "stock": -7,
 }, {new: true, runValidators: true}).then(res => {
     console.log(res);
 }).catch(err => {
-    console.log(err);
+    console.log(err.errors.stock.properties.message);
 })
