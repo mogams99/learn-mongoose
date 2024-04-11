@@ -11,13 +11,55 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    price: {
-        type: Number
+    brand: {
+        type: String,
+        required: true
     },
+    price: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    color: {
+        type: String,
+        required: true
+    },
+    size: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true,
+        maxLength: 150
+    },
+    condition: {
+        type: String,
+        enum: ['baru', 'bekas'],
+        required: true,
+        default: 'baru'
+    },
+    stock: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    availability: {
+        online: {
+            type: Boolean,
+            required: true
+        },
+        offline: {
+            type: Boolean,
+            required: true
+        }
+    }
 });
 
 const Product = mongoose.model('Product', productSchema);
+
 // const tshirt = new Product({name: 'Goolagool Shirt V3', price: 200000, color: 'acid'});
+
 // tshirt.save()
 //     .then((result) => {
 //         console.log(result);
