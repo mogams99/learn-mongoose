@@ -13,12 +13,28 @@ const personSchema = new mongoose.Schema({
 
 personSchema.virtual('fullName').get(function() {
     return `${this.firstName} ${this.lastName}`;
-})
+});
+
+personSchema.pre('save', async function() {
+    this.firstName = 'Afifa';
+    this.lastName = 'Aulia';
+    console.log('Saving process...');
+});
+
+personSchema.post('save', async function() {
+    console.log('Data has been successfully.');
+});
 
 const Person = mongoose.model('Person', personSchema);
 
 const person = new Person({
-    firstName: 'Mochammad',
-    lastName: 'Gamal'
+    firstName: 'One',
+    lastName: 'Person'
 });
-console.log(person.fullName);
+console.log(person);
+
+person.save().then(res => {
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+})
